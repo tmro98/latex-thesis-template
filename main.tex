@@ -1,0 +1,132 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\graphicspath{ {img/} }
+
+\usepackage[left=3cm, right=2cm, top=25mm, bottom=25mm]{geometry}
+\setlength{\headheight}{15.35pt}
+
+\usepackage{blindtext}
+
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[backend=biber,style=authoryear, maxcitenames=1, maxbibnames = 99]{biblatex}
+\addbibresource{lit.bib}
+\usepackage{csquotes}
+\DefineBibliographyStrings{english}{andothers = {{et\,al\adddot}},}
+
+\usepackage[intoc]{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{Abbreviations, Symbols and Notation}
+
+\usepackage{etoolbox}
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{A}{Abbrevetions}{%
+  \ifstrequal{#1}{S}{Symbols and Notation}{%
+  {}}}%
+  ]}
+
+\usepackage{fancyhdr}  
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase\leftmark}
+\fancyfoot[C]{\thepage}
+
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{appendix}
+
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+\definecolor{lightblue}{rgb}{0,0,0.7}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\color{codegray}\small,
+    stringstyle=\color{codepurple},
+    emph={nn},          
+    emphstyle=\color{lightblue},
+    %frame=tb,
+    basicstyle=\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+\input{chapters/title.tex}
+    
+\pagenumbering{roman}
+
+\input{chapters/abstract}
+\clearpage
+    
+\tableofcontents
+    
+\nomenclature[S]{$x^{(j)}$}{$j$ is a dimension of the vector $x$}
+\nomenclature[S]{$x_i$}{$x_i$ is the $i$th element of a certain set}
+\nomenclature[S]{$e$}{number of epochs}
+\nomenclature[S]{$lr$}{learning rate}
+\nomenclature[S]{$\vert L \vert$}{dimensionality of a list $L$ (or a vector)}
+\nomenclature[S]{$\Theta$}{set of parameters}
+\nomenclature[A]{ML}{Machine Learning}
+\nomenclature[A]{NLP}{Natural Language Processing}
+\nomenclature[A]{NLU}{Natural Language Understanding}
+\nomenclature[A]{SGD}{Stochastic Gradient Descent}
+\nomenclature[A]{(C)BOW}{(Continuous) Bag of Words}
+\nomenclature[A]{LSTM}{Long Short-Term Memory}
+\nomenclature[A]{RNN}{Recurrent Neural Network}
+\nomenclature[A]{FSA}{Financial Sentiment Analysis}
+\nomenclature[A]{SVM}{Support Vector Machine \\} %easy way to create space betwwen groups
+\nomenclature[A]{MLP}{Multilayer Perceptron}
+\nomenclature[A]{FFNN}{Feed Forward Neural Network}
+\nomenclature[A]{BERT}{Bidirectional Encoder Representations from Transformers}
+    
+\printnomenclature[3cm]
+    
+\clearpage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+    
+\clearpage
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+    
+\clearpage
+\pagenumbering{arabic}
+    
+\input{chapters/intro}
+    
+\input{chapters/content1}
+    
+\input{chapters/content2}
+    
+\input{chapters/content3}
+    
+\input{chapters/conclusion}
+     
+\printbibliography[heading=bibintoc]
+    
+\input{chapters/appendix}
+
+\end{document}
