@@ -21,13 +21,13 @@
 
 \usepackage[intoc]{nomencl}
 \makenomenclature
-\renewcommand{\nomname}{Abbreviations, Symbols and Notation}
+\renewcommand{\nomname}{List of Abbreviations and Symbols}
 
 \usepackage{etoolbox}
 \renewcommand\nomgroup[1]{%
   \item[\bfseries
-  \ifstrequal{#1}{A}{Abbrevetions}{%
-  \ifstrequal{#1}{S}{Symbols and Notation}{%
+  \ifstrequal{#1}{A}{Abbreveations}{%
+  \ifstrequal{#1}{S}{Symbols}{%
   {}}}%
   ]}
 
@@ -83,25 +83,7 @@
     
 \tableofcontents
     
-\nomenclature[S]{$x^{(j)}$}{$j$ is a dimension of the vector $x$}
-\nomenclature[S]{$x_i$}{$x_i$ is the $i$th element of a certain set}
-\nomenclature[S]{$e$}{number of epochs}
-\nomenclature[S]{$lr$}{learning rate}
-\nomenclature[S]{$\vert L \vert$}{dimensionality of a list $L$ (or a vector)}
-\nomenclature[S]{$\Theta$}{set of parameters}
-\nomenclature[A]{ML}{Machine Learning}
-\nomenclature[A]{NLP}{Natural Language Processing}
-\nomenclature[A]{NLU}{Natural Language Understanding}
-\nomenclature[A]{SGD}{Stochastic Gradient Descent}
-\nomenclature[A]{(C)BOW}{(Continuous) Bag of Words}
-\nomenclature[A]{LSTM}{Long Short-Term Memory}
-\nomenclature[A]{RNN}{Recurrent Neural Network}
-\nomenclature[A]{FSA}{Financial Sentiment Analysis}
-\nomenclature[A]{SVM}{Support Vector Machine \\} %easy way to create space betwwen groups
-\nomenclature[A]{MLP}{Multilayer Perceptron}
-\nomenclature[A]{FFNN}{Feed Forward Neural Network}
-\nomenclature[A]{BERT}{Bidirectional Encoder Representations from Transformers}
-    
+\input{nomenclature}    
 \printnomenclature[3cm]
     
 \clearpage
